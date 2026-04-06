@@ -1,0 +1,24 @@
+---
+import type { KnowledgePageRecord } from '../data/projects';
+import { joinBasePath } from '../utils/paths';
+
+interface Props {
+	page: KnowledgePageRecord;
+}
+
+const { page } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<article class="knowledge-card">
+	<div class="card-topline">
+		<p class="card-kicker">{page.eyebrow}</p>
+	</div>
+
+	<h3>{page.title}</h3>
+	<p>{page.description}</p>
+
+	<div class="card-actions">
+		<a href={joinBasePath(baseUrl, `knowledge/${page.slug}/`)}>Открыть страницу</a>
+	</div>
+</article>

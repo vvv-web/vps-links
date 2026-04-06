@@ -1,0 +1,107 @@
+---
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { isSectionActive, joinBasePath } from '../utils/paths';
+
+interface Breadcrumb {
+	label: string;
+	href?: string;
+}
+
+interface Props {
+	title?: string;
+	description?: string;
+	eyebrow?: string;
+	pageTitle?: string;
+	pageLead?: string;
+	currentPath?: string;
+	breadcrumbs?: Breadcrumb[];
+}
+
+const {
+	title = 'VPS Links',
+	description = 'Публичная витрина VPS-проектов и база знаний по эксплуатационным сценариям.',
+	eyebrow,
+	pageTitle,
+	pageLead,
+	currentPath = '/',
+	breadcrumbs = [],
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const navLinks = [
+	{ label: 'Главная', href: '/' },
+	{ label: 'Проекты', href: '/#projects' },
+	{ label: 'База знаний', href: '/#knowledge' },
+];
+
+const documentTitle = title === 'VPS Links' ? title : `${title} | VPS Links`;
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={joinBasePath(baseUrl, 'favicon.svg')} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{documentTitle}</title>
+	</head>
+	<body>
+		<div class="app-shell">
+			<div class="backdrop-grid" aria-hidden="true"></div>
+			<header class="topbar">
+				<a class="brand" href={joinBasePath(baseUrl, '/')}>
+					<span class="brand__label">VPS</span>
+					<span class="brand__name">Links</span>
+				</a>
+
+				<nav class="topnav" aria-label="Основная навигация">
+					{
+						navLinks.map((link) => (
+							<a
+								class:list={['topnav__link', { 'is-active': isSectionActive(currentPath, link.href) }]}
+								href={joinBasePath(baseUrl, link.href)}
+							>
+								{link.label}
+							</a>
+						))
+					}
+				</nav>
+			</header>
+
+			<main class="page-shell">
+				{
+					breadcrumbs.length > 0 && (
+						<nav class="breadcrumbs" aria-label="Хлебные крошки">
+							<ol>
+								{breadcrumbs.map((crumb) => (
+									<li>
+										{crumb.href ? <a href={joinBasePath(baseUrl, crumb.href)}>{crumb.label}</a> : <span>{crumb.label}</span>}
+									</li>
+								))}
+							</ol>
+						</nav>
+					)
+				}
+
+				{
+					(pageTitle || eyebrow || pageLead) && (
+						<section class="page-header">
+							{eyebrow && <p class="page-header__eyebrow">{eyebrow}</p>}
+							{pageTitle && <h1>{pageTitle}</h1>}
+							{pageLead && <p class="page-header__lead">{pageLead}</p>}
+						</section>
+					)
+				}
+
+				<div class="content-flow">
+					<slot />
+				</div>
+			</main>
+
+			<Footer />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProjectBySlug, getProjectSlugs, type ProjectRecord } from '../../data/projects';
+
+export function getStaticPaths() {
+	return getProjectSlugs().map((slug) => ({
+		params: { slug },
+		props: {
+			project: getProjectBySlug(slug),
+		},
+	}));
+}
+
+const { project } = Astro.props as { project: ProjectRecord };
+---
+
+<BaseLayout
+	title={project.title}
+	description={project.description}
+	eyebrow={project.vpsRole}
+	pageTitle={project.title}
+	pageLead={project.summary}
+	currentPath={`/projects/${project.slug}/`}
+	breadcrumbs={[
+		{ label: 'Главная', href: '/' },
+		{ label: 'Проекты', href: '/#projects' },
+		{ label: project.title },
+	]}
+>
+	<section class="project-detail-grid">
+		<article class="page-card">
+			<p class="card-kicker">{project.surface}</p>
+			<h2>Назначение сервиса</h2>
+			<p>{project.description}</p>
+
+			<div class="project-meta">
+				<div class="project-meta__item">
+					<span class="project-meta__label">Контур</span>
+					<span class="project-meta__value">{project.vpsRole}</span>
+				</div>
+				<div class="project-meta__item">
+					<span class="project-meta__label">Public entry</span>
+					<span class="project-meta__value">{project.publicUrl}</span>
+				</div>
+			</div>
+
+			<div class="page-actions">
+				<a href={project.publicUrl} target="_blank" rel="noreferrer">Открыть сервис</a>
+				{
+					project.repoUrl && (
+						<a href={project.repoUrl} target="_blank" rel="noreferrer">
+							Репозиторий
+						</a>
+					)
+				}
+			</div>
+		</article>
+
+		<div class="detail-panels">
+			<aside class="detail-panel" id="docs">
+				<h2>Документация</h2>
+				<p>
+					Показываем только безопасные внешние источники. Если какая-то ссылка позже исчезнет,
+					страница всё равно остаётся рабочей.
+				</p>
+				<ul class="link-list">
+					{project.docsLinks.map((link) => (
+						<li>
+							<a href={link.href} target="_blank" rel="noreferrer">
+								{link.label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</aside>
+
+			<aside class="detail-panel">
+				<h2>Operational summary</h2>
+				<ul class="note-list">
+					{project.notes.map((note) => <li>{note}</li>)}
+				</ul>
+			</aside>
+		</div>
+	</section>
+</BaseLayout>

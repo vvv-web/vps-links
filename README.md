@@ -1,6 +1,6 @@
 # VPS Links
 
-Bootstrap repository for the VPS showcase portal published as a GitHub Pages project site.
+Public GitHub Pages showcase for VPS projects: brand-first landing page, internal project pages, and internal knowledge pages backed by structured data plus Markdown.
 
 ## URL shape
 
@@ -14,6 +14,45 @@ That means:
 - `base` should stay at the repository path: `/vps-links`
 
 Both values are set in `astro.config.mjs`.
+
+## What is included in v1
+
+- Branded homepage with project cards and knowledge cards
+- Dynamic project pages from `src/data/projects.ts`
+- Internal knowledge pages in `src/pages/knowledge/*.md`
+- Static deployment to GitHub Pages through GitHub Actions
+
+## Where content lives
+
+| Path | Purpose |
+| :--- | :------ |
+| `src/data/projects.ts` | Canonical source of truth for project cards and `/projects/[slug]` pages |
+| `src/pages/knowledge/*.md` | Internal knowledge base pages |
+| `src/components/` | Reusable portal UI blocks |
+| `src/layouts/BaseLayout.astro` | Shared layout, nav, breadcrumbs, footer |
+| `src/styles/global.css` | Global visual system |
+
+## How to update the portal
+
+### Add or update a project
+
+1. Edit `src/data/projects.ts`.
+2. Keep the `slug` unique.
+3. Add only publicly safe URLs in `publicUrl`, `repoUrl`, and `docsLinks`.
+4. Run `npm test`, `npm run check`, and `npm run build`.
+
+### Add or update a knowledge page
+
+1. Create or edit a Markdown file in `src/pages/knowledge/`.
+2. Keep the page in plain Markdown with frontmatter that points to `BaseLayout.astro`.
+3. If the page should appear on the homepage, update `vpsKnowledgePages` in `src/data/projects.ts`.
+4. Run `npm run check` and `npm run build`.
+
+## Content safety checklist
+
+- Do not publish secrets, tokens, internal IPs, private dashboards, or credentialed URLs.
+- Prefer public GitHub docs and public service entrypoints.
+- If a project has no safe public repository link, leave it out instead of guessing.
 
 ## Where to change Pages settings later
 
@@ -36,16 +75,8 @@ Run from the repository root:
 | Command | Purpose |
 | :------ | :------ |
 | `npm install` | Install dependencies |
+| `npm test` | Run Vitest checks for catalog and route data |
 | `npm run dev` | Start local Astro dev server |
 | `npm run check` | Run Astro type/content checks |
 | `npm run build` | Build the static site into `dist/` |
 | `npm run preview` | Preview the production build locally |
-
-## Current scope
-
-Task 1 only establishes the baseline:
-
-- Astro project scaffold with TypeScript config
-- GitHub Pages project-site configuration
-- GitHub Actions deployment workflow
-- Minimal placeholder homepage for the portal bootstrap

@@ -1,0 +1,75 @@
+---
+interface Props {
+	projectCount: number;
+	knowledgeCount: number;
+}
+
+const { projectCount, knowledgeCount } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="portal-hero-heading">
+	<div class="hero__main">
+		<div class="hero__rail" aria-hidden="true">
+			<span>Graphite</span>
+			<span>Amber</span>
+			<span>Public</span>
+		</div>
+
+		<div class="hero__stack">
+			<p class="section-kicker">Strategic showcase</p>
+			<h1 id="portal-hero-heading">Цифровая витрина проектов VPS</h1>
+			<p class="hero__lead">
+				Единая входная точка для сервисов, рабочих URL и внутренней базы знаний. Без backend-слоя,
+				без живых статусных дашбордов, только понятный маршрут по уже развернутому контуру.
+			</p>
+
+			<div class="hero__actions">
+				<a class="button" href="#projects">Сервисы</a>
+				<a class="button-secondary" href="#knowledge">База знаний</a>
+			</div>
+
+			<div class="hero__stats" aria-label="Ключевые показатели портала">
+				<div class="hero__stat">
+					<strong>{projectCount}</strong>
+					<span>проектных карточек в v1</span>
+				</div>
+				<div class="hero__stat">
+					<strong>{knowledgeCount}</strong>
+					<span>внутренние knowledge pages</span>
+				</div>
+				<div class="hero__stat">
+					<strong>GitHub</strong>
+					<span>публикация через статический Pages pipeline</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<aside class="hero__aside" aria-label="Что есть в портале">
+		<div class="hero__aside-card">
+			<p class="card-kicker">Contour map</p>
+			<h2>Сразу к нужной точке</h2>
+			<p>
+				Главная страница ведёт к публичным сервисам, а внутренние страницы объясняют назначение
+				каждого проекта и показывают безопасные ссылки на GitHub-документацию.
+			</p>
+		</div>
+
+		<div class="hero__aside-card">
+			<ul class="hero__signal-list">
+				<li>
+					<strong>Сервисы</strong>
+					<span>Переход к production, internal и tools-контрурам максимум в 1–2 клика.</span>
+				</li>
+				<li>
+					<strong>Knowledge base</strong>
+					<span>Доступ, deploy, troubleshooting и monitoring как часть портала, а не внешняя куча README.</span>
+				</li>
+				<li>
+					<strong>Безопасный scope</strong>
+					<span>Только публичные URL и допустимые документы, без секретов и без приватных артефактов.</span>
+				</li>
+			</ul>
+		</div>
+	</aside>
+</section>

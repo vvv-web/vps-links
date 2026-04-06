@@ -1,0 +1,22 @@
+---
+import { joinBasePath } from '../utils/paths';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<footer class="site-footer">
+	<div>
+		<p class="card-kicker">Operational footer</p>
+		<h2 class="site-footer__title">VPS contour, собранный в одну статическую витрину</h2>
+		<p class="section-copy">
+			Портал показывает только безопасный слой: публичные URL, проектные страницы и knowledge-карты,
+			которые можно поддерживать через structured data и markdown.
+		</p>
+	</div>
+
+	<div class="site-footer__links">
+		<a href="https://github.com/vvv-web" target="_blank" rel="noreferrer">GitHub</a>
+		<a href="https://github.com/vvv-web/vps-links" target="_blank" rel="noreferrer">Репозиторий витрины</a>
+		<a href={joinBasePath(baseUrl, 'knowledge/deploy/')}>Operational docs</a>
+	</div>
+</footer>
