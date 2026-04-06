@@ -1,46 +1,51 @@
-# Astro Starter Kit: Basics
+# VPS Links
 
-```sh
-npm create astro@latest -- --template basics
-```
+Bootstrap repository for the VPS showcase portal published as a GitHub Pages project site.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## URL shape
 
-## 🚀 Project Structure
+This repo is configured for the GitHub Pages project URL:
 
-Inside of your Astro project, you'll see the following folders and files:
+`https://vvv-web.github.io/vps-links/`
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+That means:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- `site` should stay at the account host: `https://vvv-web.github.io`
+- `base` should stay at the repository path: `/vps-links`
 
-## 🧞 Commands
+Both values are set in `astro.config.mjs`.
 
-All commands are run from the root of the project, from a terminal:
+## Where to change Pages settings later
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+If this project moves to a different GitHub account, repository name, or custom domain, update:
 
-## 👀 Want to learn more?
+1. `astro.config.mjs`
+2. GitHub repository Pages settings
+3. Any hard-coded project links in page content
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+For a custom domain later:
+
+- change `site` to the final domain
+- remove `base`
+- add `public/CNAME` when the custom-domain task is approved
+
+## Commands
+
+Run from the repository root:
+
+| Command | Purpose |
+| :------ | :------ |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local Astro dev server |
+| `npm run check` | Run Astro type/content checks |
+| `npm run build` | Build the static site into `dist/` |
+| `npm run preview` | Preview the production build locally |
+
+## Current scope
+
+Task 1 only establishes the baseline:
+
+- Astro project scaffold with TypeScript config
+- GitHub Pages project-site configuration
+- GitHub Actions deployment workflow
+- Minimal placeholder homepage for the portal bootstrap
