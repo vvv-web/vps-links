@@ -22,6 +22,16 @@ Both values are set in `astro.config.mjs`.
 - Internal knowledge pages in `src/pages/knowledge/*.md`
 - Static deployment to GitHub Pages through GitHub Actions
 
+## Wiki.js rollout status
+
+As of `2026-04-07`, this portal is wired to the first live `Wiki.js` instance for VPS service documentation.
+
+- Live wiki base URL: `https://wiki.acom-offer-desk.ru/`
+- Access model: public read for service and ops pages, authenticated edit/admin only
+- Project cards and knowledge pages prefer stable wiki links over mixed external doc targets
+- The homepage hero includes a short runbook for opening the wiki, finding `/services/*` and `/ops/*`, and extending the catalog
+- Deployment blueprints live in `ops/wiki-js/`, while implementation notes live in `docs/superpowers/plans/`
+
 ## Where content lives
 
 | Path | Purpose |
@@ -31,6 +41,8 @@ Both values are set in `astro.config.mjs`.
 | `src/components/` | Reusable portal UI blocks |
 | `src/layouts/BaseLayout.astro` | Shared layout, nav, breadcrumbs, footer |
 | `src/styles/global.css` | Global visual system |
+| `ops/wiki-js/` | Wiki.js compose, nginx, page map, and content templates for the VPS doc layer |
+| `docs/superpowers/plans/` | Rollout plans and execution notes for the Wiki.js integration |
 
 ## How to update the portal
 
@@ -38,15 +50,17 @@ Both values are set in `astro.config.mjs`.
 
 1. Edit `src/data/projects.ts`.
 2. Keep the `slug` unique.
-3. Add only publicly safe URLs in `publicUrl`, `repoUrl`, and `docsLinks`.
-4. Run `npm test`, `npm run check`, and `npm run build`.
+3. Prefer the stable `Wiki.js` service page as the primary doc target when it exists.
+4. Add only publicly safe URLs in `publicUrl`, `repoUrl`, and `docsLinks`.
+5. Run `npm test`, `npm run check`, and `npm run build`.
 
 ### Add or update a knowledge page
 
 1. Create or edit a Markdown file in `src/pages/knowledge/`.
 2. Keep the page in plain Markdown with frontmatter that points to `BaseLayout.astro`.
-3. If the page should appear on the homepage, update `vpsKnowledgePages` in `src/data/projects.ts`.
-4. Run `npm run check` and `npm run build`.
+3. If a full operational version exists in `Wiki.js`, link to that page from the Markdown summary.
+4. If the page should appear on the homepage, update `vpsKnowledgePages` in `src/data/projects.ts`.
+5. Run `npm run check` and `npm run build`.
 
 ## Content safety checklist
 

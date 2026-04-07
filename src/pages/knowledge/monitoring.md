@@ -17,7 +17,7 @@ breadcrumbs:
 ## Что мониторить в v1
 
 - Доступность публичного URL.
-- Наличие project-specific docs или runbook с описанием health-check.
+- Наличие service page в Wiki.js с описанием health-check и smoke-check шагов.
 - Понимание, есть ли у сервиса отдельный operational слой вне самой витрины.
 
 ## Карта по текущим сервисам
@@ -30,11 +30,13 @@ breadcrumbs:
 ## Что читать первым
 
 1. Project page нужного сервиса.
-2. Deploy / troubleshooting knowledge page внутри портала.
-3. Внешний runbook или project info, если нужна детальная operational проверка.
+2. Service page в Wiki.js.
+3. Deploy / troubleshooting knowledge page внутри портала.
+4. Внешний runbook или project info, если нужна детальная operational проверка.
 
 ## Рабочие документы
 
-- [Converter project docs](/projects/converter/#docs)
-- [Camunda project docs](/projects/camunda/#docs)
+- [Wiki.js: monitoring](https://wiki.acom-offer-desk.ru/ops/monitoring)
+- [Wiki.js: Converter](https://wiki.acom-offer-desk.ru/services/converter)
+- [Wiki.js: Camunda](https://wiki.acom-offer-desk.ru/services/camunda)
 - [AcomOfferDesk repository](https://github.com/vvv-web/AcomOfferDesk)

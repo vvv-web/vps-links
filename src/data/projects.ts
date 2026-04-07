@@ -35,10 +35,14 @@ export const projects: ProjectRecord[] = [
 		publicUrl: 'https://app.acom-offer-desk.ru/',
 		repoUrl: 'https://github.com/vvv-web/AcomOfferDesk',
 		primaryDocLink: {
-			label: 'README проекта',
-			href: 'https://github.com/vvv-web/AcomOfferDesk#readme',
+			label: 'Внутренняя wiki',
+			href: 'https://wiki.acom-offer-desk.ru/services/acom-offer-desk',
 		},
 		docsLinks: [
+			{
+				label: 'Внутренняя wiki',
+				href: 'https://wiki.acom-offer-desk.ru/services/acom-offer-desk',
+			},
 			{
 				label: 'README проекта',
 				href: 'https://github.com/vvv-web/AcomOfferDesk#readme',
@@ -62,10 +66,14 @@ export const projects: ProjectRecord[] = [
 		publicUrl: 'https://converter.acom-offer-desk.ru/',
 		repoUrl: 'https://github.com/vvv-web/converter',
 		primaryDocLink: {
-			label: 'Документация проекта',
-			href: '/projects/converter/#docs',
+			label: 'Внутренняя wiki',
+			href: 'https://wiki.acom-offer-desk.ru/services/converter',
 		},
 		docsLinks: [
+			{
+				label: 'Внутренняя wiki',
+				href: 'https://wiki.acom-offer-desk.ru/services/converter',
+			},
 			{
 				label: 'Репозиторий форка',
 				href: 'https://github.com/vvv-web/converter',
@@ -93,10 +101,14 @@ export const projects: ProjectRecord[] = [
 			'Публичный вход в Camunda 8 on-prem через VPS-шлюз с доступом к Operate, Tasklist, Modeler и REST API.',
 		publicUrl: 'https://camunda.acom-offer-desk.ru/operate',
 		primaryDocLink: {
-			label: 'Документация проекта',
-			href: '/projects/camunda/#docs',
+			label: 'Внутренняя wiki',
+			href: 'https://wiki.acom-offer-desk.ru/services/camunda',
 		},
 		docsLinks: [
+			{
+				label: 'Внутренняя wiki',
+				href: 'https://wiki.acom-offer-desk.ru/services/camunda',
+			},
 			{
 				label: 'Camunda Operate docs',
 				href: 'https://docs.camunda.io/docs/components/operate/operate-introduction/',
@@ -124,13 +136,13 @@ export const projects: ProjectRecord[] = [
 			'Пара публичных точек для LLM API и браузерного GUI: прокси LiteLLM и отдельный Open WebUI.',
 		publicUrl: 'https://llm.acom-offer-desk.ru/',
 		primaryDocLink: {
-			label: 'README сервиса',
-			href: '/projects/llm-webui/#docs',
+			label: 'Внутренняя wiki',
+			href: 'https://wiki.acom-offer-desk.ru/services/llm-webui',
 		},
 		docsLinks: [
 			{
-				label: 'README сервиса',
-				href: '/projects/llm-webui/#docs',
+				label: 'Внутренняя wiki',
+				href: 'https://wiki.acom-offer-desk.ru/services/llm-webui',
 			},
 			{
 				label: 'Open WebUI GUI',

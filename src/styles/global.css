@@ -429,6 +429,35 @@ a {
 	line-height: 1.5;
 }
 
+.hero__signal-list a {
+	color: var(--text);
+	text-decoration: underline;
+	text-decoration-color: rgba(247, 177, 48, 0.5);
+	text-underline-offset: 0.18em;
+}
+
+.hero__signal-list a:hover {
+	color: var(--accent);
+}
+
+.hero__signal-list code,
+.content-flow code {
+	padding: 0.15rem 0.42rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	color: var(--text);
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 0.88em;
+}
+
+.hero__aside-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 18px;
+}
+
 .section-block {
 	padding: clamp(24px, 4vw, 36px);
 }

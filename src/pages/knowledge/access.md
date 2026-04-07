@@ -18,7 +18,7 @@ breadcrumbs:
 
 - Если нужен сам сервис, начинайте с карточек на главной.
 - Если нужен контекст по сервису, переходите на внутреннюю project page через кнопку `О проекте`.
-- Если нужна исходная документация, используйте внешние ссылки на GitHub из project page.
+- Если нужна живая operational-документация, переходите по кнопке `Документация` в Wiki.js.
 
 ## Публичные точки входа
 
@@ -30,8 +30,16 @@ breadcrumbs:
 ## Что читать первым
 
 1. Сначала внутреннюю страницу проекта.
-2. Затем README или runbook из карточки `Документация`.
-3. Только после этого переходить к более глубоким operational-артефактам.
+2. Затем страницу сервиса в Wiki.js.
+3. И только потом внешние README и публичные docs, если они действительно нужны.
+
+## Основные внутренние страницы
+
+- [Wiki.js: доступ](https://wiki.acom-offer-desk.ru/ops/access)
+- [Wiki.js: AcomOfferDesk](https://wiki.acom-offer-desk.ru/services/acom-offer-desk)
+- [Wiki.js: Converter](https://wiki.acom-offer-desk.ru/services/converter)
+- [Wiki.js: Camunda](https://wiki.acom-offer-desk.ru/services/camunda)
+- [Wiki.js: LLM / WebUI](https://wiki.acom-offer-desk.ru/services/llm-webui)
 
 ## Внешние первоисточники
 

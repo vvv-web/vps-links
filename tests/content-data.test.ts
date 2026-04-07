@@ -28,16 +28,16 @@ describe('projects catalog', () => {
 
 	it('exposes a primary documentation target for each project card', () => {
 		expect(getPrimaryDocLink(getProjectBySlug('acom-offer-desk')!)?.href).toBe(
-			'https://github.com/vvv-web/AcomOfferDesk#readme',
+			'https://wiki.acom-offer-desk.ru/services/acom-offer-desk',
 		);
 		expect(getPrimaryDocLink(getProjectBySlug('converter')!)?.href).toBe(
-			'/projects/converter/#docs',
+			'https://wiki.acom-offer-desk.ru/services/converter',
 		);
 		expect(getPrimaryDocLink(getProjectBySlug('camunda')!)?.href).toBe(
-			'/projects/camunda/#docs',
+			'https://wiki.acom-offer-desk.ru/services/camunda',
 		);
 		expect(getPrimaryDocLink(getProjectBySlug('llm-webui')!)?.href).toBe(
-			'/projects/llm-webui/#docs',
+			'https://wiki.acom-offer-desk.ru/services/llm-webui',
 		);
 	});
 

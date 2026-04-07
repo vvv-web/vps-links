@@ -56,20 +56,43 @@ const { projectCount, knowledgeCount } = Astro.props;
 		</div>
 
 		<div class="hero__aside-card">
+			<p class="card-kicker">Wiki runbook</p>
+			<h2>СБ и команда</h2>
+			<p>
+				Короткий operational-маршрут для чтения внутренней wiki, поиска runbook-страниц и
+				добавления нового сервиса без блуждания по репозиториям.
+			</p>
+
 			<ul class="hero__signal-list">
 				<li>
-					<strong>Сервисы</strong>
-					<span>Переход к production, internal и tools-контрурам максимум в 1–2 клика.</span>
+					<strong>1. Открыть Wiki.js</strong>
+					<span>
+						Откройте <a href="https://wiki.acom-offer-desk.ru/" target="_blank">Wiki.js</a>. Для
+						чтения логин не нужен: общедоступные service- и ops-страницы открываются сразу.
+					</span>
 				</li>
 				<li>
-					<strong>Knowledge base</strong>
-					<span>Доступ, deploy, troubleshooting и monitoring как часть портала, а не внешняя куча README.</span>
+					<strong>2. Где искать страницы</strong>
+					<span>
+						Страницы сервисов лежат в <code>/services/*</code>, общие runbook-и в
+						<code>/ops/access</code>, <code>/ops/deploy</code>, <code>/ops/troubleshooting</code> и
+						<code>/ops/monitoring</code>. Из карточек проектов портал уже ведёт в нужную wiki-точку.
+					</span>
 				</li>
 				<li>
-					<strong>Безопасный scope</strong>
-					<span>Только публичные URL и допустимые документы, без секретов и без приватных артефактов.</span>
+					<strong>3. Как добавить новый сервис</strong>
+					<span>
+						Сначала создайте страницу вида <code>/services/&lt;slug&gt;</code> в Wiki.js, затем
+						добавьте ссылку на неё в карточку сервиса внутри <code>vps-links</code>. Для создания и
+						редактирования по-прежнему нужен вход редактора или администратора.
+					</span>
 				</li>
 			</ul>
+
+			<div class="hero__aside-actions">
+				<a class="button" href="https://wiki.acom-offer-desk.ru/" target="_blank">Открыть Wiki.js</a>
+				<a class="button-secondary" href="#knowledge">Где лежат runbook-и</a>
+			</div>
 		</div>
 	</aside>
 </section>

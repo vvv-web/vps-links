@@ -17,7 +17,7 @@ breadcrumbs:
 ## С чего начинать
 
 - Проверить, открывается ли сам публичный URL сервиса.
-- Если внешний адрес отвечает, но поведение странное, открыть внутреннюю project page и перейти к исходной документации.
+- Если внешний адрес отвечает, но поведение странное, открыть service page в Wiki.js и идти по linked runbook.
 - Если документация неполная, сама витрина не должна ломаться: просто используйте доступные внешние ссылки.
 
 ## Типовые симптомы
@@ -29,13 +29,14 @@ breadcrumbs:
 ## Что читать первым
 
 1. Project page нужного сервиса.
-2. README или runbook.
-3. Уже потом более глубокие operational документы команды.
+2. Страница сервиса в Wiki.js.
+3. Уже потом README, runbook или более глубокие operational документы команды.
 
-> Закрытые operational-инвентари и внутренние шпаргалки сознательно не попадают в публичную витрину. Если нужен такой уровень детализации, ищите его уже внутри приватного контура команды.
+> Закрытые operational-инвентари и внутренние шпаргалки сознательно не попадают в публичную витрину. Для этого уровня детализации используйте приватный контур Wiki.js.
 
 ## Рабочие документы
 
-- [AcomOfferDesk README](https://github.com/vvv-web/AcomOfferDesk#readme)
-- [Converter project docs](/projects/converter/#docs)
-- [Camunda project docs](/projects/camunda/#docs)
+- [Wiki.js: troubleshooting](https://wiki.acom-offer-desk.ru/ops/troubleshooting)
+- [Wiki.js: AcomOfferDesk](https://wiki.acom-offer-desk.ru/services/acom-offer-desk)
+- [Wiki.js: Converter](https://wiki.acom-offer-desk.ru/services/converter)
+- [Wiki.js: Camunda](https://wiki.acom-offer-desk.ru/services/camunda)
