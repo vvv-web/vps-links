@@ -15,6 +15,7 @@
 - Deploy and rollback
 - Monitoring
 - Troubleshooting
+- Git-источник markdown: `ops/wiki-js/pages/services-converter.md` (публикация: `scripts/publish-page.sh`)
 
 ### `/services/camunda`
 - Overview
