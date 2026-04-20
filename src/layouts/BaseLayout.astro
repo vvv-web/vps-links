@@ -1,5 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { isSectionActive, joinBasePath } from '../utils/paths';
 
@@ -99,8 +98,6 @@ const documentTitle = title === 'VPS Links' ? title : `${title} | VPS Links`;
 					<slot />
 				</div>
 			</main>
-
-			<Footer />
 		</div>
 	</body>
 </html>
