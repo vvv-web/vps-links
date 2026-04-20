@@ -47,6 +47,13 @@ describe('projects catalog', () => {
 			href: 'https://github.com/vvv-web/converter/blob/test/README.md',
 		});
 	});
+
+	it('keeps converter test-branch RUNBOOK in external links', () => {
+		expect(getProjectBySlug('converter')?.docsLinks).toContainEqual({
+			label: 'RUNBOOK (ветка test)',
+			href: 'https://github.com/vvv-web/converter/blob/test/docs/RUNBOOK.md',
+		});
+	});
 });
 
 describe('knowledge pages', () => {

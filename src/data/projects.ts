@@ -108,6 +108,10 @@ export const projects: ProjectRecord[] = [
 				label: 'README (ветка test)',
 				href: 'https://github.com/vvv-web/converter/blob/test/README.md',
 			},
+			{
+				label: 'RUNBOOK (ветка test)',
+				href: 'https://github.com/vvv-web/converter/blob/test/docs/RUNBOOK.md',
+			},
 		],
 		vpsRole: 'Production',
 		surface: 'Document services',
@@ -116,7 +120,7 @@ export const projects: ProjectRecord[] = [
 		notes: [
 			'Актуальная линия разработки — ветка `test` (tip совпадает с `vldsmelov/converter:test`); на форке также есть `main` и `prototype` (`prototype` расходится с `test` — не считать её копией актуального кода без сверки).',
 			'Витрина ведёт README с ветки `test`. Фактический ref на VPS проверяйте по runbook (`git rev-parse HEAD` / compose) — при расхождении обновите деплой или поправьте `vpsDeployBranch` в данных.',
-			'Детальный VPS runbook — во внутренней wiki; ссылка на wiki проверена на доступность (HTTP 200). Содержимое страниц wiki поддерживается вручную.',
+			'Операционка: внутренняя wiki плюс `docs/RUNBOOK.md` в репозитории (ветка `test`, §10 — VPS). Содержимое wiki поддерживается вручную и должно совпадать по смыслу с RUNBOOK и фактом на сервере.',
 		],
 	},
 	{
