@@ -60,8 +60,8 @@ const { project } = Astro.props as { project: ProjectRecord };
 			<aside class="detail-panel" id="docs">
 				<h2>Документация</h2>
 				<p class="detail-panel__lead">
-					Сначала внутренняя wiki, затем внешние ссылки. Страница проекта остаётся рабочей, даже если
-					внешний ресурс исчезнет.
+					Сначала внутренняя wiki (runbook и контур), затем репозиторий и README целевой ветки. Ссылки —
+					на момент сборки витрины; свежесть текста на wiki и в репо поддерживают люди, не этот сайт.
 				</p>
 				<ul class="link-list">
 					{project.docsLinks.map((link) => (

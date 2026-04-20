@@ -89,7 +89,8 @@ export const projects: ProjectRecord[] = [
 		gitDefaultBranch: 'main',
 		gitBranchesAsOf: '2026-04-20',
 		gitBranches: ['main', 'prototype', 'test'],
-		vpsDeployBranch: 'prototype',
+		/** Основная линия кода: совпадает с upstream `vldsmelov/converter:test`; `prototype` — отдельная ветка форка. */
+		vpsDeployBranch: 'test',
 		primaryDocLink: {
 			label: 'Внутренняя wiki',
 			href: 'https://wiki.acom-offer-desk.ru/services/converter',
@@ -104,8 +105,8 @@ export const projects: ProjectRecord[] = [
 				href: 'https://github.com/vvv-web/converter',
 			},
 			{
-				label: 'README (ветка prototype)',
-				href: 'https://github.com/vvv-web/converter/blob/prototype/README.md',
+				label: 'README (ветка test)',
+				href: 'https://github.com/vvv-web/converter/blob/test/README.md',
 			},
 		],
 		vpsRole: 'Production',
@@ -113,9 +114,9 @@ export const projects: ProjectRecord[] = [
 		summary:
 			'Публичный сервис конвертации с отдельными маршрутами для NSI, docs и conversion через один домен.',
 		notes: [
-			'На VPS для текущего контура развёртывания используется ветка `prototype` (на GitHub также есть `main` и `test`).',
-			'Детальный VPS runbook — во внутренней wiki и локальной доке команды; витрина даёт только публичные точки входа.',
-			'Статика и backend обновляются независимо — ориентир по процедурам в wiki.',
+			'Актуальная линия разработки — ветка `test` (tip совпадает с `vldsmelov/converter:test`); на форке также есть `main` и `prototype` (`prototype` расходится с `test` — не считать её копией актуального кода без сверки).',
+			'Витрина ведёт README с ветки `test`. Фактический ref на VPS проверяйте по runbook (`git rev-parse HEAD` / compose) — при расхождении обновите деплой или поправьте `vpsDeployBranch` в данных.',
+			'Детальный VPS runbook — во внутренней wiki; ссылка на wiki проверена на доступность (HTTP 200). Содержимое страниц wiki поддерживается вручную.',
 		],
 	},
 	{
