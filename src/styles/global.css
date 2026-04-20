@@ -403,19 +403,23 @@ a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2.5rem;
-	height: 2.5rem;
+	min-width: 3.25rem;
+	width: 3.25rem;
+	height: 3.25rem;
 	padding: 0;
 	border-radius: 50%;
-	border: 1px solid rgba(212, 175, 55, 0.45);
-	background: var(--accent-soft);
+	border: 2px solid var(--accent);
+	background: rgba(212, 175, 55, 0.14);
 	color: var(--accent);
-	font-size: 0.95rem;
+	font-size: 1.15rem;
 	font-weight: 700;
 	font-variant-numeric: tabular-nums;
 	letter-spacing: 0;
 	text-transform: none;
 	line-height: 1;
+	box-shadow:
+		0 0 0 1px rgba(0, 0, 0, 0.35),
+		0 0 20px rgba(212, 175, 55, 0.22);
 }
 
 .card-grid {
