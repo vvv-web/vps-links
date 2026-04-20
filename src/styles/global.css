@@ -110,6 +110,25 @@ a {
 	padding: 22px 0 10px;
 }
 
+.topbar__start {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	min-width: 0;
+}
+
+.brand-emblem {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	flex-shrink: 0;
+	border: 2px solid rgba(255, 255, 255, 0.12);
+	box-shadow: var(--shadow);
+	background: rgba(255, 255, 255, 0.04);
+}
+
 .brand {
 	display: inline-flex;
 	align-items: baseline;
