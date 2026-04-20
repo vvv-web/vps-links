@@ -115,16 +115,29 @@ a {
 	min-width: 0;
 }
 
-.brand-emblem {
-	width: 96px;
-	height: 96px;
+/* Круглая маска + лёгкий zoom: убираем серую кайму от фотографии стикера */
+.brand-emblem-wrap {
+	display: block;
+	width: 128px;
+	height: 128px;
+	flex-shrink: 0;
 	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid rgba(212, 175, 55, 0.45);
+	box-shadow: var(--shadow);
+	background: var(--bg);
+}
+
+.brand-emblem-wrap .brand-emblem {
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	object-position: center;
-	flex-shrink: 0;
-	border: 2px solid rgba(212, 175, 55, 0.35);
-	box-shadow: var(--shadow);
-	background: rgba(255, 255, 255, 0.04);
+	display: block;
+	transform: scale(1.22);
+	border: none;
+	box-shadow: none;
+	background: transparent;
 }
 
 .brand {
@@ -635,9 +648,13 @@ a {
 		padding-top: 16px;
 	}
 
-	.brand-emblem {
-		width: 72px;
-		height: 72px;
+	.brand-emblem-wrap {
+		width: 92px;
+		height: 92px;
+	}
+
+	.brand-emblem-wrap .brand-emblem {
+		transform: scale(1.16);
 	}
 
 	.page-shell {

@@ -51,15 +51,17 @@ const documentTitle = title === 'VPS Links' ? title : `${title} | VPS Links`;
 			<div class="backdrop-grid" aria-hidden="true"></div>
 			<header class="topbar">
 				<div class="topbar__start">
-					<img
-						class="brand-emblem"
-						src={joinBasePath(baseUrl, 'brand-emblem.png')}
-						width="96"
-						height="87"
-						alt="Эмблема: Управление экономики — цифровизация проектных задач"
-						loading="eager"
-						decoding="async"
-					/>
+					<span class="brand-emblem-wrap">
+						<img
+							class="brand-emblem"
+							src={joinBasePath(baseUrl, 'brand-emblem.png')}
+							width="566"
+							height="514"
+							alt="Эмблема: Управление экономики — цифровизация проектных задач"
+							loading="eager"
+							decoding="async"
+						/>
+					</span>
 					<a class="brand" href={joinBasePath(baseUrl, '/')}>
 						<span class="brand__label">VPS</span>
 						<span class="brand__name">Links</span>
