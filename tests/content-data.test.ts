@@ -43,8 +43,8 @@ describe('projects catalog', () => {
 
 	it('keeps converter prototype documentation visible in external links', () => {
 		expect(getProjectBySlug('converter')?.docsLinks).toContainEqual({
-			label: 'README prototype',
-			href: 'https://github.com/vldsmelov/converter/blob/prototype/README.md',
+			label: 'README (ветка prototype)',
+			href: 'https://github.com/vvv-web/converter/blob/prototype/README.md',
 		});
 	});
 });
