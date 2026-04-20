@@ -1,93 +1,30 @@
 ---
 interface Props {
 	projectCount: number;
-	knowledgeCount: number;
 }
 
-const { projectCount, knowledgeCount } = Astro.props;
+const { projectCount } = Astro.props;
 ---
 
-<section class="hero" aria-labelledby="portal-hero-heading">
+<section class="hero hero--minimal" aria-labelledby="portal-hero-heading">
 	<div class="hero__main">
 		<div class="hero__stack">
 			<p class="section-kicker">Портал</p>
 			<h1 id="portal-hero-heading">Витрина сервисов на VPS</h1>
 			<p class="hero__lead">
-				Ссылки на рабочие URL, карточки проектов и короткие страницы-заметки. Статический сайт на
-				GitHub Pages: без серверной логики и без «живых» дашбордов статуса — только навигация по уже
-				развёрнутым сервисам и wiki.
+				Краткие карточки: стенд, публичный URL, ссылки на репозиторий и документацию.
 			</p>
 
 			<div class="hero__actions">
-				<a class="button" href="#projects">Сервисы</a>
-				<a class="button-secondary" href="#knowledge">База знаний</a>
+				<a class="button" href="#projects">Проекты</a>
 			</div>
 
-			<div class="hero__stats" aria-label="Сводка портала">
+			<div class="hero__stats hero__stats--single" aria-label="Сводка портала">
 				<div class="hero__stat">
 					<strong>{projectCount}</strong>
-					<span>проекта в каталоге</span>
-				</div>
-				<div class="hero__stat">
-					<strong>{knowledgeCount}</strong>
-					<span>страницы базы знаний</span>
-				</div>
-				<div class="hero__stat">
-					<strong>Pages</strong>
-					<span>сборка и публикация через GitHub Actions</span>
+					<span>проектов</span>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<aside class="hero__aside" aria-label="Что есть в портале">
-		<div class="hero__aside-card">
-			<p class="card-kicker">Навигация</p>
-			<h2>Как пользоваться</h2>
-			<p>
-				С главной — в сервис или на страницу проекта с ссылками на wiki и репозиторий. Никаких секретов
-				и учётных данных на этих страницах нет.
-			</p>
-		</div>
-
-		<div class="hero__aside-card">
-			<p class="card-kicker">Wiki</p>
-			<h2>СБ и команда</h2>
-			<p>
-				Короткий operational-маршрут для чтения внутренней wiki, поиска runbook-страниц и
-				добавления нового сервиса без блуждания по репозиториям.
-			</p>
-
-			<ul class="hero__signal-list">
-				<li>
-					<strong>1. Открыть Wiki.js</strong>
-					<span>
-						Откройте <a href="https://wiki.acom-offer-desk.ru/" target="_blank">Wiki.js</a>. Для
-						чтения логин не нужен: общедоступные service- и ops-страницы открываются сразу.
-					</span>
-				</li>
-				<li>
-					<strong>2. Где искать страницы</strong>
-					<span>
-						Страницы сервисов лежат в <code>/services/*</code>, общие runbook-и в
-						<code>/ops/access</code>, <code>/ops/deploy</code>, <code>/ops/troubleshooting</code> и
-						<code>/ops/monitoring</code>. Из карточек проектов портал уже ведёт в нужную wiki-точку.
-					</span>
-				</li>
-				<li>
-					<strong>3. Как добавить новый сервис</strong>
-					<span>
-						Сначала создайте страницу вида <code>/services/&lt;slug&gt;</code> в Wiki.js, затем
-						добавьте ссылку на неё в карточку сервиса внутри <code>vps-links</code>. Для создания и
-						редактирования по-прежнему нужен вход редактора или администратора.
-					</span>
-				</li>
-			</ul>
-
-			<div class="hero__aside-actions">
-				<a class="button" href="https://wiki.acom-offer-desk.ru/" target="_blank">Открыть Wiki.js</a>
-				<a class="button-secondary" href="#knowledge">Где лежат runbook-и</a>
-			</div>
-		</div>
-	</aside>
 </section>

@@ -1,50 +1,28 @@
 ---
 import Hero from '../components/Hero.astro';
-import KnowledgeCard from '../components/KnowledgeCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { projects, vpsKnowledgePages } from '../data/projects';
+import { projects } from '../data/projects';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
 	title="VPS Links"
-	description="Публичная витрина: ссылки на сервисы VPS, карточки проектов и короткая база знаний (статический сайт)."
+	description="Публичная витрина: стенд, ссылки на сервисы и документацию."
 	currentPath="/"
 >
-	<Hero projectCount={projects.length} knowledgeCount={vpsKnowledgePages.length} />
+	<Hero projectCount={projects.length} />
 
 	<section class="section-block" id="projects" aria-labelledby="projects-heading">
 		<div class="section-heading">
 			<div class="section-heading__meta">
 				<p class="section-kicker">Сервисы</p>
-				<h2 id="projects-heading">Проекты и входы</h2>
-				<p class="section-copy">
-					Карточка ведёт в сервис или на страницу проекта с описанием, ветками GitHub (если есть
-					репозиторий) и ссылками на документацию.
-				</p>
+				<h2 id="projects-heading">Проекты</h2>
 			</div>
-			<div class="section-heading__tag">{projects.length} проекта</div>
+			<div class="section-heading__tag">{projects.length}</div>
 		</div>
 
 		<div class="card-grid">
 			{projects.map((project) => <ProjectCard project={project} />)}
-		</div>
-	</section>
-
-	<section class="section-block" id="knowledge" aria-labelledby="knowledge-heading">
-		<div class="section-heading">
-			<div class="section-heading__meta">
-				<p class="section-kicker">Заметки</p>
-				<h2 id="knowledge-heading">База знаний на сайте</h2>
-				<p class="section-copy">
-					Короткие страницы в этом же сайте; подробные runbook — во внутренней wiki и репозиториях.
-				</p>
-			</div>
-			<div class="section-heading__tag">Markdown</div>
-		</div>
-
-		<div class="card-grid">
-			{vpsKnowledgePages.map((page) => <KnowledgeCard page={page} />)}
 		</div>
 	</section>
 </BaseLayout>

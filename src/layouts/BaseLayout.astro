@@ -20,7 +20,7 @@ interface Props {
 
 const {
 	title = 'VPS Links',
-	description = 'Публичная витрина VPS-проектов и база знаний по эксплуатационным сценариям.',
+	description = 'Публичная витрина: стенд, ссылки на сервисы и документацию.',
 	eyebrow,
 	pageTitle,
 	pageLead,
@@ -32,7 +32,6 @@ const baseUrl = import.meta.env.BASE_URL;
 const navLinks = [
 	{ label: 'Главная', href: '/' },
 	{ label: 'Проекты', href: '/#projects' },
-	{ label: 'База знаний', href: '/#knowledge' },
 ];
 
 const documentTitle = title === 'VPS Links' ? title : `${title} | VPS Links`;

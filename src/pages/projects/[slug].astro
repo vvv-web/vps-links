@@ -16,7 +16,7 @@ const { project } = Astro.props as { project: ProjectRecord };
 
 <BaseLayout
 	title={project.title}
-	description={project.description}
+	description={project.summary}
 	eyebrow={project.vpsRole}
 	pageTitle={project.title}
 	pageLead={project.summary}
@@ -27,11 +27,9 @@ const { project } = Astro.props as { project: ProjectRecord };
 		{ label: project.title },
 	]}
 >
-	<section class="project-detail-grid">
+	<section class="project-detail-grid project-detail-grid--simple">
 		<article class="page-card">
 			<p class="card-kicker">{project.surface}</p>
-			<h2>Назначение сервиса</h2>
-			<p>{project.description}</p>
 
 			<div class="project-meta">
 				<div class="project-meta__item">
@@ -56,57 +54,17 @@ const { project } = Astro.props as { project: ProjectRecord };
 			</div>
 		</article>
 
-		<div class="detail-panels">
-			<aside class="detail-panel" id="docs">
-				<h2>Документация</h2>
-				<p class="detail-panel__lead">
-					Сначала внутренняя wiki (runbook и контур), затем репозиторий и README целевой ветки. Ссылки —
-					на момент сборки витрины; свежесть текста на wiki и в репо поддерживают люди, не этот сайт.
-				</p>
-				<ul class="link-list">
-					{project.docsLinks.map((link) => (
-						<li>
-							<a href={link.href} target="_blank" rel="noreferrer">
-								{link.label}
-							</a>
-						</li>
-					))}
-				</ul>
-			</aside>
-
-			<aside class="detail-panel">
-				<h2>Заметки</h2>
-				<ul class="note-list">
-					{project.notes.map((note) => <li>{note}</li>)}
-				</ul>
-			</aside>
-
-			{
-				project.repoUrl && project.gitBranches && project.gitBranches.length > 0 && (
-					<aside class="detail-panel">
-						<h2>Ветки на GitHub</h2>
-						<p class="muted detail-panel__lead">
-							Сверено
-							{project.gitBranchesAsOf ? ` ${project.gitBranchesAsOf}` : ''}. Ветка по умолчанию:{' '}
-							<strong>{project.gitDefaultBranch ?? '—'}</strong>
-							{project.vpsDeployBranch != null && (
-								<>
-									{' '}
-									· деплой на VPS с ветки <strong>{project.vpsDeployBranch}</strong>
-								</>
-							)}
-							.
-						</p>
-						<ul class="note-list">
-							{project.gitBranches.map((b) => (
-								<li>
-									<code>{b}</code>
-								</li>
-							))}
-						</ul>
-					</aside>
-				)
-			}
-		</div>
+		<aside class="detail-panel" id="docs">
+			<h2>Документация</h2>
+			<ul class="link-list">
+				{project.docsLinks.map((link) => (
+					<li>
+						<a href={link.href} target="_blank" rel="noreferrer">
+							{link.label}
+						</a>
+					</li>
+				))}
+			</ul>
+		</aside>
 	</section>
 </BaseLayout>

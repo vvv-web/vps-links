@@ -5,7 +5,6 @@ import {
 	getPrimaryDocLink,
 	getProjectSlugs,
 	projects,
-	vpsKnowledgePages,
 } from '../src/data/projects';
 import { isSectionActive, joinBasePath } from '../src/utils/paths';
 
@@ -56,27 +55,15 @@ describe('projects catalog', () => {
 	});
 });
 
-describe('knowledge pages', () => {
-	it('exposes the four internal knowledge routes from the design spec', () => {
-		expect(vpsKnowledgePages.map((page) => page.slug)).toEqual([
-			'access',
-			'deploy',
-			'troubleshooting',
-			'monitoring',
-		]);
-	});
-});
-
 describe('base path helpers', () => {
 	it('joins project-site base paths without losing slashes or hashes', () => {
 		expect(joinBasePath('/vps-links', 'favicon.svg')).toBe('/vps-links/favicon.svg');
 		expect(joinBasePath('/vps-links', '/projects/camunda/')).toBe('/vps-links/projects/camunda/');
-		expect(joinBasePath('/vps-links', '/#knowledge')).toBe('/vps-links/#knowledge');
+		expect(joinBasePath('/vps-links', '/#projects')).toBe('/vps-links/#projects');
 	});
 
 	it('marks section links as active when the current page is inside that section', () => {
 		expect(isSectionActive('/projects/camunda/', '/#projects')).toBe(true);
-		expect(isSectionActive('/knowledge/access/', '/#knowledge')).toBe(true);
 		expect(isSectionActive('/', '/#projects')).toBe(false);
 	});
 });

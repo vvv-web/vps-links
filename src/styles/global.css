@@ -234,6 +234,19 @@ a {
 	align-items: stretch;
 }
 
+.hero--minimal {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.hero__stats--single {
+	grid-template-columns: minmax(0, 1fr);
+	max-width: 280px;
+}
+
+.project-detail-grid--simple {
+	align-items: start;
+}
+
 .hero__main,
 .hero__aside,
 .section-block,

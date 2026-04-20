@@ -1,6 +1,6 @@
 # VPS Links
 
-Public GitHub Pages showcase for VPS projects: brand-first landing page, internal project pages, and internal knowledge pages backed by structured data plus Markdown.
+Public GitHub Pages showcase for VPS projects: главная с карточками проектов и страницы `/projects/[slug]` (стенд, URL, ссылки на документацию). Отдельной «базы знаний» на сайте нет — операционка во внутренней wiki.
 
 ## URL shape
 
@@ -15,12 +15,11 @@ That means:
 
 Both values are set in `astro.config.mjs`.
 
-## What is included in v1
+## What is included
 
-- Branded homepage with project cards and knowledge cards
-- Dynamic project pages from `src/data/projects.ts`
-- Internal knowledge pages in `src/pages/knowledge/*.md`
-- Static deployment to GitHub Pages through GitHub Actions
+- Главная с карточками проектов
+- Страницы проектов из `src/data/projects.ts`
+- Статическая сборка и GitHub Pages (GitHub Actions)
 
 ## Wiki.js rollout status
 
@@ -28,16 +27,14 @@ As of `2026-04-07`, this portal is wired to the first live `Wiki.js` instance fo
 
 - Live wiki base URL: `https://wiki.acom-offer-desk.ru/`
 - Access model: public read for service and ops pages, authenticated edit/admin only
-- Project cards and knowledge pages prefer stable wiki links over mixed external doc targets
-- The homepage hero includes a short runbook for opening the wiki, finding `/services/*` and `/ops/*`, and extending the catalog
+- Карточки проектов ведут на стабильные wiki-страницы сервисов, где это уместно
 - Deployment blueprints live in `ops/wiki-js/`, while implementation notes live in `docs/superpowers/plans/`
 
 ## Where content lives
 
 | Path | Purpose |
 | :--- | :------ |
-| `src/data/projects.ts` | Canonical source of truth for project cards and `/projects/[slug]` pages |
-| `src/pages/knowledge/*.md` | Internal knowledge base pages |
+| `src/data/projects.ts` | Источник данных для карточек и `/projects/[slug]` |
 | `src/components/` | Reusable portal UI blocks |
 | `src/layouts/BaseLayout.astro` | Shared layout, nav, breadcrumbs, footer |
 | `src/styles/global.css` | Global visual system |
@@ -53,14 +50,6 @@ As of `2026-04-07`, this portal is wired to the first live `Wiki.js` instance fo
 3. Prefer the stable `Wiki.js` service page as the primary doc target when it exists.
 4. Add only publicly safe URLs in `publicUrl`, `repoUrl`, and `docsLinks`.
 5. Run `npm test`, `npm run check`, and `npm run build`.
-
-### Add or update a knowledge page
-
-1. Create or edit a Markdown file in `src/pages/knowledge/`.
-2. Keep the page in plain Markdown with frontmatter that points to `BaseLayout.astro`.
-3. If a full operational version exists in `Wiki.js`, link to that page from the Markdown summary.
-4. If the page should appear on the homepage, update `vpsKnowledgePages` in `src/data/projects.ts`.
-5. Run `npm run check` and `npm run build`.
 
 ## Content safety checklist
 
