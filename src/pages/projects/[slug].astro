@@ -39,7 +39,7 @@ const { project } = Astro.props as { project: ProjectRecord };
 					<span class="project-meta__value">{project.vpsRole}</span>
 				</div>
 				<div class="project-meta__item">
-					<span class="project-meta__label">Public entry</span>
+					<span class="project-meta__label">Публичный URL</span>
 					<span class="project-meta__value">{project.publicUrl}</span>
 				</div>
 			</div>
@@ -59,9 +59,9 @@ const { project } = Astro.props as { project: ProjectRecord };
 		<div class="detail-panels">
 			<aside class="detail-panel" id="docs">
 				<h2>Документация</h2>
-				<p>
-					Сначала ведём в стабильные страницы внутренней wiki, а уже потом в публичные safe-ссылки.
-					Если внешний источник позже исчезнет, project page всё равно останется рабочей.
+				<p class="detail-panel__lead">
+					Сначала внутренняя wiki, затем внешние ссылки. Страница проекта остаётся рабочей, даже если
+					внешний ресурс исчезнет.
 				</p>
 				<ul class="link-list">
 					{project.docsLinks.map((link) => (
@@ -75,11 +75,38 @@ const { project } = Astro.props as { project: ProjectRecord };
 			</aside>
 
 			<aside class="detail-panel">
-				<h2>Operational summary</h2>
+				<h2>Заметки</h2>
 				<ul class="note-list">
 					{project.notes.map((note) => <li>{note}</li>)}
 				</ul>
 			</aside>
+
+			{
+				project.repoUrl && project.gitBranches && project.gitBranches.length > 0 && (
+					<aside class="detail-panel">
+						<h2>Ветки на GitHub</h2>
+						<p class="muted detail-panel__lead">
+							Сверено
+							{project.gitBranchesAsOf ? ` ${project.gitBranchesAsOf}` : ''}. Ветка по умолчанию:{' '}
+							<strong>{project.gitDefaultBranch ?? '—'}</strong>
+							{project.vpsDeployBranch != null && (
+								<>
+									{' '}
+									· деплой на VPS с ветки <strong>{project.vpsDeployBranch}</strong>
+								</>
+							)}
+							.
+						</p>
+						<ul class="note-list">
+							{project.gitBranches.map((b) => (
+								<li>
+									<code>{b}</code>
+								</li>
+							))}
+						</ul>
+					</aside>
+				)
+			}
 		</div>
 	</section>
 </BaseLayout>

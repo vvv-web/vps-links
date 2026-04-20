@@ -207,10 +207,10 @@ a {
 .hero h1 {
 	margin: 0;
 	font-family: 'Tektur', sans-serif;
-	font-size: clamp(2.7rem, 7vw, 5.6rem);
-	line-height: 0.94;
-	letter-spacing: 0.01em;
-	text-transform: uppercase;
+	font-size: clamp(2rem, 5vw, 3.25rem);
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	text-transform: none;
 }
 
 .page-header__lead,
@@ -263,23 +263,6 @@ a {
 	height: 240px;
 	background: radial-gradient(circle, rgba(247, 177, 48, 0.18), transparent 65%);
 	filter: blur(12px);
-}
-
-.hero__rail {
-	position: absolute;
-	inset: 24px 24px auto auto;
-	display: flex;
-	gap: 12px;
-	color: rgba(255, 255, 255, 0.24);
-	font-family: 'Tektur', sans-serif;
-	font-size: 0.82rem;
-	letter-spacing: 0.16em;
-	text-transform: uppercase;
-}
-
-.hero__rail span {
-	padding-top: 20px;
-	border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .hero__stack {
@@ -381,8 +364,8 @@ a {
 	margin: 0;
 	font-family: 'Tektur', sans-serif;
 	font-size: clamp(1.24rem, 3vw, 1.82rem);
-	text-transform: uppercase;
-	letter-spacing: 0.03em;
+	text-transform: none;
+	letter-spacing: -0.01em;
 }
 
 .hero__aside-card p,
@@ -392,6 +375,13 @@ a {
 .detail-panel p {
 	color: var(--text-soft);
 	line-height: 1.7;
+}
+
+.detail-panel__lead {
+	margin: 0 0 12px;
+	font-size: 0.94rem;
+	color: var(--muted);
+	line-height: 1.6;
 }
 
 .hero__signal-list,
@@ -532,8 +522,8 @@ a {
 	margin: 0 0 12px;
 	font-family: 'Tektur', sans-serif;
 	font-size: 1.5rem;
-	letter-spacing: 0.02em;
-	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	text-transform: none;
 }
 
 .card-meta {
@@ -743,12 +733,6 @@ a {
 	.site-footer {
 		padding: 20px;
 		border-radius: 22px;
-	}
-
-	.hero__rail {
-		position: static;
-		flex-wrap: wrap;
-		margin-bottom: 22px;
 	}
 
 	.card-grid {

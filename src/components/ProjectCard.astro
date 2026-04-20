@@ -9,6 +9,16 @@ interface Props {
 const { project } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const primaryDocLink = getPrimaryDocLink(project);
+const gitSummary =
+	project.gitDefaultBranch != null
+		? [
+				`default: ${project.gitDefaultBranch}`,
+				project.vpsDeployBranch != null ? `VPS deploy: ${project.vpsDeployBranch}` : null,
+				project.gitBranches != null ? `${project.gitBranches.length} веток` : null,
+			]
+				.filter(Boolean)
+				.join(' · ')
+		: null;
 ---
 
 <article class="project-card">
@@ -29,16 +39,24 @@ const primaryDocLink = getPrimaryDocLink(project);
 			<span class="card-meta__value">{project.surface}</span>
 		</div>
 		<div class="card-meta__item">
-			<span class="card-meta__label">Docs</span>
-			<span class="card-meta__value">{project.docsLinks.length} источника</span>
+			<span class="card-meta__label">Доки</span>
+			<span class="card-meta__value">{project.docsLinks.length} ссылки</span>
 		</div>
+		{
+			gitSummary && (
+				<div class="card-meta__item">
+					<span class="card-meta__label">GitHub</span>
+					<span class="card-meta__value">{gitSummary}</span>
+				</div>
+			)
+		}
 	</div>
 
 	<div class="card-actions">
 		<a href={project.publicUrl} target="_blank" rel="noreferrer">Открыть сервис</a>
 		{
 			primaryDocLink && (
-				<a href={joinBasePath(baseUrl, primaryDocLink.href)} target="_blank" rel="noreferrer">
+				<a href={primaryDocLink.href} target="_blank" rel="noreferrer">
 					Документация
 				</a>
 			)

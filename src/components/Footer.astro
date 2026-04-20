@@ -6,17 +6,17 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <footer class="site-footer">
 	<div>
-		<p class="card-kicker">Operational footer</p>
-		<h2 class="site-footer__title">VPS contour, собранный в одну статическую витрину</h2>
+		<p class="card-kicker">О сайте</p>
+		<h2 class="site-footer__title">Статическая витрина</h2>
 		<p class="section-copy">
-			Портал показывает только безопасный слой: публичные URL, проектные страницы и knowledge-карты,
-			которые можно поддерживать через structured data и markdown.
+			Только публичные ссылки и текст. Данные проектов — в файле <code>src/data/projects.ts</code>,
+			страницы знаний — в <code>src/pages/knowledge/</code>.
 		</p>
 	</div>
 
 	<div class="site-footer__links">
 		<a href="https://github.com/vvv-web" target="_blank" rel="noreferrer">GitHub</a>
 		<a href="https://github.com/vvv-web/vps-links" target="_blank" rel="noreferrer">Репозиторий витрины</a>
-		<a href={joinBasePath(baseUrl, 'knowledge/deploy/')}>Operational docs</a>
+		<a href={joinBasePath(baseUrl, 'knowledge/deploy/')}>Развёртывание</a>
 	</div>
 </footer>

@@ -11,6 +11,14 @@ export interface ProjectRecord {
 	description: string;
 	publicUrl: string;
 	repoUrl?: string;
+	/** Ветка по умолчанию на GitHub (проверка веток — см. репозиторий). */
+	gitDefaultBranch?: string;
+	/** Полный список имён веток на момент обновления витрины. */
+	gitBranches?: string[];
+	/** Ветка, с которой обычно деплой на VPS, если не default. */
+	vpsDeployBranch?: string;
+	/** Дата сверки списка веток (YYYY-MM-DD). */
+	gitBranchesAsOf?: string;
 	primaryDocLink?: ExternalLink;
 	docsLinks: ExternalLink[];
 	vpsRole: VpsRole;
@@ -34,6 +42,19 @@ export const projects: ProjectRecord[] = [
 			'Рабочий контур заявок и коммуникаций: веб-интерфейс, API, gateway и Telegram-бот на одном VPS.',
 		publicUrl: 'https://app.acom-offer-desk.ru/',
 		repoUrl: 'https://github.com/vvv-web/AcomOfferDesk',
+		gitDefaultBranch: 'main',
+		gitBranchesAsOf: '2026-04-20',
+		gitBranches: [
+			'main',
+			'dev',
+			'test',
+			'docs/readme-update-verification',
+			'fix/deploy-order-db-prerequisites',
+			'fix/order-db-prereq',
+			'fix/test-ci-keycloak-health',
+			'fix/tg-bot-telegram-retry',
+			'sync-alex-test-into-dev-20260406',
+		],
 		primaryDocLink: {
 			label: 'Внутренняя wiki',
 			href: 'https://wiki.acom-offer-desk.ru/services/acom-offer-desk',
@@ -54,7 +75,7 @@ export const projects: ProjectRecord[] = [
 			'Публичная точка входа для основного приложения и связанного monitoring-view без отдельного backend в витрине.',
 		notes: [
 			'Сервис открывается по домену приложения и не зависит от логики витрины.',
-			'Основной source of truth по коду находится в форке `vvv-web/AcomOfferDesk`.',
+			'Код: репозиторий `vvv-web/AcomOfferDesk` (default branch на GitHub — `main`; рабочие линии — `dev`, `test`, плюс перечисленные в карточке ветки).',
 			'Monitoring-доступ остаётся вторичным operational слоем, а не отдельной главной витриной.',
 		],
 	},
@@ -65,6 +86,10 @@ export const projects: ProjectRecord[] = [
 			'Набор сервисов конвертации и документов с отдельными health-check endpoint и публичным reverse proxy.',
 		publicUrl: 'https://converter.acom-offer-desk.ru/',
 		repoUrl: 'https://github.com/vvv-web/converter',
+		gitDefaultBranch: 'main',
+		gitBranchesAsOf: '2026-04-20',
+		gitBranches: ['main', 'prototype', 'test'],
+		vpsDeployBranch: 'prototype',
 		primaryDocLink: {
 			label: 'Внутренняя wiki',
 			href: 'https://wiki.acom-offer-desk.ru/services/converter',
@@ -79,8 +104,8 @@ export const projects: ProjectRecord[] = [
 				href: 'https://github.com/vvv-web/converter',
 			},
 			{
-				label: 'README prototype',
-				href: 'https://github.com/vldsmelov/converter/blob/prototype/README.md',
+				label: 'README (ветка prototype)',
+				href: 'https://github.com/vvv-web/converter/blob/prototype/README.md',
 			},
 		],
 		vpsRole: 'Production',
@@ -88,10 +113,9 @@ export const projects: ProjectRecord[] = [
 		summary:
 			'Публичный сервис конвертации с отдельными маршрутами для NSI, docs и conversion через один домен.',
 		notes: [
-			'На VPS канонической веткой для развёртывания является `prototype`.',
-			'Подробный VPS runbook сейчас зафиксирован локально на Desktop и свёрнут во внутреннюю docs-секцию этой страницы.',
-			'Runbook описывает loopback-порты, пересборку compose и health-check маршруты.',
-			'Статика и backend-контур обновляются независимо, поэтому документация особенно важна.',
+			'На VPS для текущего контура развёртывания используется ветка `prototype` (на GitHub также есть `main` и `test`).',
+			'Детальный VPS runbook — во внутренней wiki и локальной доке команды; витрина даёт только публичные точки входа.',
+			'Статика и backend обновляются независимо — ориентир по процедурам в wiki.',
 		],
 	},
 	{
@@ -167,28 +191,28 @@ export const vpsKnowledgePages: KnowledgePageRecord[] = [
 		title: 'Доступ',
 		description:
 			'Как быстро понять, куда переходить: сервисы, GitHub-источники и публичные точки входа.',
-		eyebrow: 'Entry map',
+		eyebrow: 'Карта',
 	},
 	{
 		slug: 'deploy',
 		title: 'Развертывание',
 		description:
 			'Короткая карта развёртывания: от GitHub ветки и Actions до pull/build на VPS.',
-		eyebrow: 'Release path',
+		eyebrow: 'Релиз',
 	},
 	{
 		slug: 'troubleshooting',
 		title: 'Troubleshooting',
 		description:
 			'Где смотреть в первую очередь, если сервис не открывается или внешняя ссылка ведёт на ошибку.',
-		eyebrow: 'First response',
+		eyebrow: 'Сбой',
 	},
 	{
 		slug: 'monitoring',
 		title: 'Мониторинг',
 		description:
 			'Какие сервисы уже имеют operational-слой и какие внешние документы использовать для проверки.',
-		eyebrow: 'Signals',
+		eyebrow: 'Наблюдение',
 	},
 ];
 

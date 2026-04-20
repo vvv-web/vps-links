@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
 	title="VPS Links"
-	description="Публичная витрина VPS-проектов с brand-first hero, карточками сервисов и внутренней базой знаний."
+	description="Публичная витрина: ссылки на сервисы VPS, карточки проектов и короткая база знаний (статический сайт)."
 	currentPath="/"
 >
 	<Hero projectCount={projects.length} knowledgeCount={vpsKnowledgePages.length} />
@@ -16,14 +16,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<section class="section-block" id="projects" aria-labelledby="projects-heading">
 		<div class="section-heading">
 			<div class="section-heading__meta">
-				<p class="section-kicker">Service catalog</p>
-				<h2 id="projects-heading">Проекты и рабочие точки входа</h2>
+				<p class="section-kicker">Сервисы</p>
+				<h2 id="projects-heading">Проекты и входы</h2>
 				<p class="section-copy">
-					Карточки ведут либо сразу в публичный сервис, либо на внутреннюю страницу проекта с
-					кратким operational summary и ссылками на исходные документы.
+					Карточка ведёт в сервис или на страницу проекта с описанием, ветками GitHub (если есть
+					репозиторий) и ссылками на документацию.
 				</p>
 			</div>
-			<div class="section-heading__tag">{projects.length} стартовых сервиса</div>
+			<div class="section-heading__tag">{projects.length} проекта</div>
 		</div>
 
 		<div class="card-grid">
@@ -34,14 +34,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<section class="section-block" id="knowledge" aria-labelledby="knowledge-heading">
 		<div class="section-heading">
 			<div class="section-heading__meta">
-				<p class="section-kicker">Knowledge base</p>
-				<h2 id="knowledge-heading">База знаний внутри витрины</h2>
+				<p class="section-kicker">Заметки</p>
+				<h2 id="knowledge-heading">База знаний на сайте</h2>
 				<p class="section-copy">
-					Сначала короткая человеческая карта темы внутри GitHub Pages, а уже под ней ссылки на
-					репозитории, README и runbook как на первоисточники.
+					Короткие страницы в этом же сайте; подробные runbook — во внутренней wiki и репозиториях.
 				</p>
 			</div>
-			<div class="section-heading__tag">Внутренние страницы</div>
+			<div class="section-heading__tag">Markdown</div>
 		</div>
 
 		<div class="card-grid">

@@ -9,18 +9,13 @@ const { projectCount, knowledgeCount } = Astro.props;
 
 <section class="hero" aria-labelledby="portal-hero-heading">
 	<div class="hero__main">
-		<div class="hero__rail" aria-hidden="true">
-			<span>Graphite</span>
-			<span>Amber</span>
-			<span>Public</span>
-		</div>
-
 		<div class="hero__stack">
-			<p class="section-kicker">Strategic showcase</p>
-			<h1 id="portal-hero-heading">Цифровая витрина проектов VPS</h1>
+			<p class="section-kicker">Портал</p>
+			<h1 id="portal-hero-heading">Витрина сервисов на VPS</h1>
 			<p class="hero__lead">
-				Единая входная точка для сервисов, рабочих URL и внутренней базы знаний. Без backend-слоя,
-				без живых статусных дашбордов, только понятный маршрут по уже развернутому контуру.
+				Ссылки на рабочие URL, карточки проектов и короткие страницы-заметки. Статический сайт на
+				GitHub Pages: без серверной логики и без «живых» дашбордов статуса — только навигация по уже
+				развёрнутым сервисам и wiki.
 			</p>
 
 			<div class="hero__actions">
@@ -28,18 +23,18 @@ const { projectCount, knowledgeCount } = Astro.props;
 				<a class="button-secondary" href="#knowledge">База знаний</a>
 			</div>
 
-			<div class="hero__stats" aria-label="Ключевые показатели портала">
+			<div class="hero__stats" aria-label="Сводка портала">
 				<div class="hero__stat">
 					<strong>{projectCount}</strong>
-					<span>проектных карточек в v1</span>
+					<span>проекта в каталоге</span>
 				</div>
 				<div class="hero__stat">
 					<strong>{knowledgeCount}</strong>
-					<span>внутренние knowledge pages</span>
+					<span>страницы базы знаний</span>
 				</div>
 				<div class="hero__stat">
-					<strong>GitHub</strong>
-					<span>публикация через статический Pages pipeline</span>
+					<strong>Pages</strong>
+					<span>сборка и публикация через GitHub Actions</span>
 				</div>
 			</div>
 		</div>
@@ -47,16 +42,16 @@ const { projectCount, knowledgeCount } = Astro.props;
 
 	<aside class="hero__aside" aria-label="Что есть в портале">
 		<div class="hero__aside-card">
-			<p class="card-kicker">Contour map</p>
-			<h2>Сразу к нужной точке</h2>
+			<p class="card-kicker">Навигация</p>
+			<h2>Как пользоваться</h2>
 			<p>
-				Главная страница ведёт к публичным сервисам, а внутренние страницы объясняют назначение
-				каждого проекта и показывают безопасные ссылки на GitHub-документацию.
+				С главной — в сервис или на страницу проекта с ссылками на wiki и репозиторий. Никаких секретов
+				и учётных данных на этих страницах нет.
 			</p>
 		</div>
 
 		<div class="hero__aside-card">
-			<p class="card-kicker">Wiki runbook</p>
+			<p class="card-kicker">Wiki</p>
 			<h2>СБ и команда</h2>
 			<p>
 				Короткий operational-маршрут для чтения внутренней wiki, поиска runbook-страниц и
